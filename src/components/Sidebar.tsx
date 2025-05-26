@@ -2,13 +2,13 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
-  Dashboard, 
+  Home, 
   Book, 
   FileText, 
   Map, 
-  Tool, 
+  Settings, 
   TestTube, 
-  Analysis,
+  BarChart3,
   LogOut,
   Menu,
   X
@@ -21,13 +21,13 @@ const Sidebar = () => {
 
   // Navigation menu items with icons and routes
   const menuItems = [
-    { name: 'Dashboard', icon: Dashboard, path: '/dashboard' },
+    { name: 'Dashboard', icon: Home, path: '/dashboard' },
     { name: 'Courses', icon: Book, path: '/courses' },
     { name: 'Documents', icon: FileText, path: '/upload' },
     { name: 'Mapping', icon: Map, path: '/mapping' },
-    { name: 'Tools', icon: Tool, path: '/tools' },
+    { name: 'Tools', icon: Settings, path: '/tools' },
     { name: 'Tests', icon: TestTube, path: '/tests' },
-    { name: 'Analysis', icon: Analysis, path: '/analysis' },
+    { name: 'Analysis', icon: BarChart3, path: '/analysis' },
   ];
 
   // Handle navigation

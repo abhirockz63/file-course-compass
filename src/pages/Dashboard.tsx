@@ -93,8 +93,8 @@ const Dashboard = () => {
                   <p className="text-slate-600 font-medium">Pending Uploads</p>
                   <p className="text-sm text-slate-500 mt-1">Documents needed</p>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl flex items-center justify-center">
-                  <TrendingUp className="h-7 w-7 text-orange-600" />
+                <div className="w-14 h-14 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                  <TrendingUp className="h-7 w-7 text-blue-600" />
                 </div>
               </div>
             </div>
@@ -106,8 +106,8 @@ const Dashboard = () => {
                   <p className="text-slate-600 font-medium">Upcoming Deadlines</p>
                   <p className="text-sm text-slate-500 mt-1">This week</p>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-r from-red-100 to-pink-100 rounded-2xl flex items-center justify-center">
-                  <Clock className="h-7 w-7 text-red-600" />
+                <div className="w-14 h-14 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                  <Clock className="h-7 w-7 text-purple-600" />
                 </div>
               </div>
             </div>

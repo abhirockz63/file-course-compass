@@ -1,98 +1,113 @@
 
 import Sidebar from '../components/Sidebar';
+import { TrendingUp, Clock, FileText, Users, ArrowRight, Calendar } from 'lucide-react';
 
 const Dashboard = () => {
-  // Mock data for demonstration
-  const facultyName = "Dr. John Smith";
+  const facultyName = "Dr. Sarah Johnson";
   const stats = {
     totalCourses: 6,
     pendingUploads: 3,
     deadlines: 2
   };
 
-  // Sample recent courses
   const recentCourses = [
-    { id: 1, name: "Data Structures", code: "CS201", year: "SY", semester: "I" },
-    { id: 2, name: "Database Management", code: "CS301", year: "TY", semester: "I" },
-    { id: 3, name: "Web Development", code: "CS302", year: "TY", semester: "I" },
+    { id: 1, name: "Data Structures & Algorithms", code: "CS201", year: "SY", semester: "I", progress: 85 },
+    { id: 2, name: "Database Management Systems", code: "CS301", year: "TY", semester: "I", progress: 92 },
+    { id: 3, name: "Web Development", code: "CS302", year: "TY", semester: "I", progress: 78 },
   ];
 
-  // Action cards data
   const actionCards = [
     {
       title: "Manage Courses",
       description: "Add, edit, or view course details",
-      bgColor: "bg-gradient-to-r from-purple-500 to-purple-600",
-      textColor: "text-white",
+      icon: FileText,
+      gradient: "from-indigo-500 to-purple-600",
       action: () => console.log("Navigate to courses")
     },
     {
       title: "Upload Documents",
       description: "Upload course files and documents",
-      bgColor: "bg-purple-100",
-      textColor: "text-purple-800",
+      icon: TrendingUp,
+      gradient: "from-purple-500 to-pink-600",
       action: () => console.log("Navigate to upload")
     },
     {
       title: "CO-PO Mapping",
       description: "Manage course outcome mappings",
-      bgColor: "bg-purple-50",
-      textColor: "text-purple-700",
+      icon: Users,
+      gradient: "from-blue-500 to-cyan-600",
       action: () => console.log("Navigate to mapping")
     }
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
       <Sidebar />
       
-      {/* Main Content */}
       <div className="flex-1 lg:ml-0 ml-0">
         {/* Header */}
-        <div className="bg-white shadow-sm border-b border-gray-200 p-6 ml-0 lg:ml-0">
+        <div className="bg-white/60 backdrop-blur-xl border-b border-slate-200/50 p-8 ml-0 lg:ml-0">
           <div className="ml-16 lg:ml-0">
-            <h1 className="text-2xl font-bold text-gray-800">
-              Hello, {facultyName}!
-            </h1>
-            <p className="text-gray-600 mt-1">Welcome back to your dashboard</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">SJ</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-slate-800">
+                  Welcome back, {facultyName}
+                </h1>
+                <p className="text-slate-600 mt-1 flex items-center gap-2">
+                  <Calendar size={16} />
+                  {new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="p-6 ml-16 lg:ml-0">
+        <div className="p-8 ml-16 lg:ml-0">
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <div className="flex items-center">
-                <div className="p-3 bg-purple-100 rounded-full">
-                  <span className="text-2xl font-bold text-purple-600">{stats.totalCourses}</span>
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 card-hover">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-2xl font-bold text-slate-800">{stats.totalCourses}</p>
+                  <p className="text-slate-600 font-medium">Total Courses</p>
+                  <p className="text-sm text-slate-500 mt-1">This semester</p>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">Total Courses</h3>
-                  <p className="text-gray-600">This semester</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <div className="flex items-center">
-                <div className="p-3 bg-orange-100 rounded-full">
-                  <span className="text-2xl font-bold text-orange-600">{stats.pendingUploads}</span>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">Pending Uploads</h3>
-                  <p className="text-gray-600">Documents needed</p>
+                <div className="w-14 h-14 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center">
+                  <FileText className="h-7 w-7 text-indigo-600" />
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <div className="flex items-center">
-                <div className="p-3 bg-red-100 rounded-full">
-                  <span className="text-2xl font-bold text-red-600">{stats.deadlines}</span>
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 card-hover">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-2xl font-bold text-slate-800">{stats.pendingUploads}</p>
+                  <p className="text-slate-600 font-medium">Pending Uploads</p>
+                  <p className="text-sm text-slate-500 mt-1">Documents needed</p>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">Upcoming Deadlines</h3>
-                  <p className="text-gray-600">This week</p>
+                <div className="w-14 h-14 bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl flex items-center justify-center">
+                  <TrendingUp className="h-7 w-7 text-orange-600" />
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 card-hover">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-2xl font-bold text-slate-800">{stats.deadlines}</p>
+                  <p className="text-slate-600 font-medium">Upcoming Deadlines</p>
+                  <p className="text-sm text-slate-500 mt-1">This week</p>
+                </div>
+                <div className="w-14 h-14 bg-gradient-to-r from-red-100 to-pink-100 rounded-2xl flex items-center justify-center">
+                  <Clock className="h-7 w-7 text-red-600" />
                 </div>
               </div>
             </div>
@@ -103,52 +118,60 @@ const Dashboard = () => {
             {actionCards.map((card, index) => (
               <div
                 key={index}
-                className={`${card.bgColor} rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200`}
+                className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 cursor-pointer card-hover group"
                 onClick={card.action}
               >
-                <h3 className={`text-xl font-semibold ${card.textColor} mb-2`}>
+                <div className={`w-14 h-14 bg-gradient-to-r ${card.gradient} rounded-2xl flex items-center justify-center mb-4`}>
+                  <card.icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">
                   {card.title}
                 </h3>
-                <p className={`${card.textColor} opacity-90`}>
+                <p className="text-slate-600 mb-4">
                   {card.description}
                 </p>
+                <div className="flex items-center text-indigo-600 font-medium group-hover:text-indigo-700 transition-colors">
+                  Get started
+                  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             ))}
           </div>
 
           {/* Recent Courses */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Recent Courses</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Course Name</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Code</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Year</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Semester</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {recentCourses.map((course) => (
-                    <tr key={course.id} className="hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm text-gray-800">{course.name}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{course.code}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{course.year}</td>
-                      <td className="px-4 py-3 text-sm text-gray-600">{course.semester}</td>
-                      <td className="px-4 py-3">
-                        <button
-                          onClick={() => console.log(`View details for ${course.name}`)}
-                          className="text-purple-600 hover:text-purple-800 text-sm font-medium"
-                        >
-                          View Details
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          <div className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6">
+            <h2 className="text-xl font-bold text-slate-800 mb-6">Recent Courses</h2>
+            <div className="space-y-4">
+              {recentCourses.map((course) => (
+                <div key={course.id} className="flex items-center justify-between p-4 bg-white/50 rounded-xl border border-slate-200/50 hover:bg-white/70 transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-slate-100 to-slate-200 rounded-xl flex items-center justify-center">
+                      <span className="text-slate-700 font-bold text-sm">{course.code}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-800">{course.name}</h3>
+                      <p className="text-sm text-slate-500">{course.year} • Semester {course.semester}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="text-right">
+                      <p className="text-sm font-medium text-slate-600">{course.progress}% Complete</p>
+                      <div className="w-24 h-2 bg-slate-200 rounded-full mt-1">
+                        <div 
+                          className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" 
+                          style={{ width: `${course.progress}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => console.log(`View details for ${course.name}`)}
+                      className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

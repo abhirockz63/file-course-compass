@@ -83,81 +83,81 @@ const CourseDetails = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       
       <div className="flex-1">
         {/* Header */}
-        <div className="glass-card border-none shadow-lg p-6 m-4 mb-0">
+        <div className="bg-white shadow-sm border-b border-gray-200 p-6">
           <div className="ml-16 lg:ml-0">
-            <h1 className="text-2xl font-bold text-white">Course Management</h1>
-            <p className="text-white/80 mt-1">Add and manage your courses</p>
+            <h1 className="text-2xl font-bold text-gray-800">Course Management</h1>
+            <p className="text-gray-600 mt-1">Add and manage your courses</p>
           </div>
         </div>
 
         <div className="p-6 ml-16 lg:ml-0">
           {/* Course Form */}
-          <div className="glass-card p-6 mb-8">
-            <h2 className="text-xl font-semibold text-white mb-6">Add New Course</h2>
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">Add New Course</h2>
             
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Academic Year */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Academic Year
                 </label>
                 <select
                   name="academicYear"
                   value={formData.academicYear}
                   onChange={handleInputChange}
-                  className="glass-select w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
-                  <option value="" className="bg-slate-800 text-white">Select Academic Year</option>
+                  <option value="">Select Academic Year</option>
                   {academicYears.map(year => (
-                    <option key={year} value={year} className="bg-slate-800 text-white">{year}</option>
+                    <option key={year} value={year}>{year}</option>
                   ))}
                 </select>
               </div>
 
               {/* Year */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Year
                 </label>
                 <select
                   name="year"
                   value={formData.year}
                   onChange={handleInputChange}
-                  className="glass-select w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
-                  <option value="" className="bg-slate-800 text-white">Select Year</option>
+                  <option value="">Select Year</option>
                   {years.map(year => (
-                    <option key={year} value={year} className="bg-slate-800 text-white">{year}</option>
+                    <option key={year} value={year}>{year}</option>
                   ))}
                 </select>
               </div>
 
               {/* Semester */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Semester
                 </label>
                 <select
                   name="semester"
                   value={formData.semester}
                   onChange={handleInputChange}
-                  className="glass-select w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
-                  <option value="" className="bg-slate-800 text-white">Select Semester</option>
+                  <option value="">Select Semester</option>
                   {semesters.map(sem => (
-                    <option key={sem} value={sem} className="bg-slate-800 text-white">{sem}</option>
+                    <option key={sem} value={sem}>{sem}</option>
                   ))}
                 </select>
               </div>
 
               {/* Hours per Week */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Hours per Week
                 </label>
                 <input
@@ -167,22 +167,22 @@ const CourseDetails = () => {
                   onChange={handleInputChange}
                   min="1"
                   max="10"
-                  className="glass-input w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Enter hours per week"
                 />
               </div>
 
               {/* Subject Name */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
-                  Subject Name <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   name="subjectName"
                   value={formData.subjectName}
                   onChange={handleInputChange}
-                  className="glass-input w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Enter subject name"
                   required
                 />
@@ -190,15 +190,15 @@ const CourseDetails = () => {
 
               {/* Subject Code */}
               <div>
-                <label className="block text-sm font-medium text-white/90 mb-2">
-                  Subject Code <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject Code <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   name="subjectCode"
                   value={formData.subjectCode}
                   onChange={handleInputChange}
-                  className="glass-input w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Enter subject code"
                   required
                 />
@@ -206,7 +206,7 @@ const CourseDetails = () => {
 
               {/* Theory/Practical Radio Buttons */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-white/90 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Course Type
                 </label>
                 <div className="flex space-x-6">
@@ -217,9 +217,9 @@ const CourseDetails = () => {
                       value="theory"
                       checked={formData.type === 'theory'}
                       onChange={handleInputChange}
-                      className="mr-2 text-indigo-400"
+                      className="mr-2 text-purple-600"
                     />
-                    <span className="text-white/90">Theory</span>
+                    <span className="text-gray-700">Theory</span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -228,9 +228,9 @@ const CourseDetails = () => {
                       value="practical"
                       checked={formData.type === 'practical'}
                       onChange={handleInputChange}
-                      className="mr-2 text-indigo-400"
+                      className="mr-2 text-purple-600"
                     />
-                    <span className="text-white/90">Practical</span>
+                    <span className="text-gray-700">Practical</span>
                   </label>
                 </div>
               </div>
@@ -239,7 +239,7 @@ const CourseDetails = () => {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="glass-button-primary px-6 py-2 font-medium"
+                  className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-2 rounded-md hover:from-purple-600 hover:to-purple-700 transition duration-200 font-medium"
                 >
                   Add Course
                 </button>
@@ -248,40 +248,40 @@ const CourseDetails = () => {
           </div>
 
           {/* Courses Table */}
-          <div className="glass-card p-6">
-            <h2 className="text-xl font-semibold text-white mb-4">Your Courses</h2>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Your Courses</h2>
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="glass-secondary">
+                <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Subject Name</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Code</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Year</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Semester</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Type</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Hours/Week</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-white/90">Actions</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Subject Name</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Code</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Year</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Semester</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Type</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Hours/Week</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/10">
+                <tbody className="divide-y divide-gray-200">
                   {courses.map((course) => (
-                    <tr key={course.id} className="hover:bg-white/5 transition-colors">
-                      <td className="px-4 py-3 text-sm text-white">{course.name}</td>
-                      <td className="px-4 py-3 text-sm text-white/80">{course.code}</td>
-                      <td className="px-4 py-3 text-sm text-white/80">{course.year}</td>
-                      <td className="px-4 py-3 text-sm text-white/80">{course.semester}</td>
-                      <td className="px-4 py-3 text-sm text-white/80">{course.type}</td>
-                      <td className="px-4 py-3 text-sm text-white/80">{course.hours}</td>
+                    <tr key={course.id} className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-sm text-gray-800">{course.name}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{course.code}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{course.year}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{course.semester}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{course.type}</td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{course.hours}</td>
                       <td className="px-4 py-3 space-x-2">
                         <button
                           onClick={() => console.log(`Edit course ${course.id}`)}
-                          className="text-blue-300 hover:text-blue-200 text-sm font-medium transition-colors"
+                          className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => handleDeleteCourse(course.id)}
-                          className="text-red-300 hover:text-red-200 text-sm font-medium transition-colors"
+                          className="text-red-600 hover:text-red-800 text-sm font-medium"
                         >
                           Delete
                         </button>

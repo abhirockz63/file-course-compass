@@ -21,27 +21,27 @@ const Dashboard = () => {
       title: "Manage Courses",
       description: "Add, edit, or view course details",
       icon: FileText,
-      gradient: "from-indigo-500 to-purple-600",
+      bgColor: "bg-indigo-600",
       action: () => console.log("Navigate to courses")
     },
     {
       title: "Upload Documents",
       description: "Upload course files and documents",
       icon: TrendingUp,
-      gradient: "from-purple-500 to-pink-600",
+      bgColor: "bg-blue-600",
       action: () => console.log("Navigate to upload")
     },
     {
       title: "CO-PO Mapping",
       description: "Manage course outcome mappings",
       icon: Users,
-      gradient: "from-blue-500 to-cyan-600",
+      bgColor: "bg-purple-600",
       action: () => console.log("Navigate to mapping")
     }
   ];
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
+    <div className="flex min-h-screen bg-slate-100">
       <Sidebar />
       
       <div className="flex-1 lg:ml-0 ml-0">
@@ -49,7 +49,7 @@ const Dashboard = () => {
         <div className="bg-white/60 backdrop-blur-xl border-b border-slate-200/50 p-8 ml-0 lg:ml-0">
           <div className="ml-16 lg:ml-0">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">SJ</span>
               </div>
               <div>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                   <p className="text-slate-600 font-medium">Total Courses</p>
                   <p className="text-sm text-slate-500 mt-1">This semester</p>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center">
                   <FileText className="h-7 w-7 text-indigo-600" />
                 </div>
               </div>
@@ -93,7 +93,7 @@ const Dashboard = () => {
                   <p className="text-slate-600 font-medium">Pending Uploads</p>
                   <p className="text-sm text-slate-500 mt-1">Documents needed</p>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
                   <TrendingUp className="h-7 w-7 text-blue-600" />
                 </div>
               </div>
@@ -106,7 +106,7 @@ const Dashboard = () => {
                   <p className="text-slate-600 font-medium">Upcoming Deadlines</p>
                   <p className="text-sm text-slate-500 mt-1">This week</p>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center">
                   <Clock className="h-7 w-7 text-purple-600" />
                 </div>
               </div>
@@ -121,7 +121,7 @@ const Dashboard = () => {
                 className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 cursor-pointer card-hover group"
                 onClick={card.action}
               >
-                <div className={`w-14 h-14 bg-gradient-to-r ${card.gradient} rounded-2xl flex items-center justify-center mb-4`}>
+                <div className={`w-14 h-14 ${card.bgColor} rounded-2xl flex items-center justify-center mb-4`}>
                   <card.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">
@@ -145,7 +145,7 @@ const Dashboard = () => {
               {recentCourses.map((course) => (
                 <div key={course.id} className="flex items-center justify-between p-4 bg-white/50 rounded-xl border border-slate-200/50 hover:bg-white/70 transition-colors">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-slate-100 to-slate-200 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center">
                       <span className="text-slate-700 font-bold text-sm">{course.code}</span>
                     </div>
                     <div>
@@ -158,14 +158,14 @@ const Dashboard = () => {
                       <p className="text-sm font-medium text-slate-600">{course.progress}% Complete</p>
                       <div className="w-24 h-2 bg-slate-200 rounded-full mt-1">
                         <div 
-                          className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" 
+                          className="h-full bg-indigo-600 rounded-full" 
                           style={{ width: `${course.progress}%` }}
                         ></div>
                       </div>
                     </div>
                     <button
                       onClick={() => console.log(`View details for ${course.name}`)}
-                      className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 text-sm font-medium"
+                      className="px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all duration-200 text-sm font-medium"
                     >
                       View Details
                     </button>
